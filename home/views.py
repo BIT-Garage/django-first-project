@@ -2,11 +2,25 @@ from django.shortcuts import render
 from .models import *
 from django.http import HttpResponse
 # Create your views here.
+
+# def home(request):
+#     views = {}
+#     views['feedbacks'] = Review.objects.all()
+#     return render(request,'index.html', views)
+
+
+
 def home(request):
-    return render(request,'index.html')
+    views = {}
+    views['feedbacks'] = Review.objects.all()
+    # views['projects'] = Project.object.all()
+    return render(request,'index.html', views)
 
 def about(request):
-    return render(request,'about.html')
+    views = {}
+    # views['feedbacks'] = Review.objects.all()
+    views['skills'] = Skills.objects.all()
+    return render(request,'about.html',views)
 
 def blog_home(request):
     return render(request,'blog-home.html')

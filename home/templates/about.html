@@ -43,26 +43,27 @@
 							<h4 class="pt-30">Tools Expertness</h4>	
 						</div>
 					</div>
+					{% for expert in skills %}
 					<div class="row skillbar-wraps">					
 						<div class="col-lg-6 skill-left">
 							<div class="single-skill">
 								<p>
-									After Effects 85%
+									{{expert.name}} {{expert.level}}
 								</p>
-								<div class="skill" data-width="85"></div>
+								<div class="skill" data-width="{{expert.level}}"></div>
 							</div>
 							<div class="single-skill">
 								<p>
-									Photoshop 90%
+									{{expert.name}} {{expert.level}}
 								</p>
-								<div class="skill" data-width="90"></div>
+								<div class="skill" data-width="{{expert.level}}"></div>
 							</div>
 							<div class="single-skill">
 								<p>
 									Illustrator 70%
 								</p>
 								<div class="skill" data-width="70"></div>
-							</div>																				
+							</div>
 						</div>
 						<div class="col-lg-6 skill-right">
 							<div class="single-skill">
@@ -70,7 +71,7 @@
 									Sublime 95%
 								</p>
 								<div class="skill" data-width="95"></div>
-							</div>								
+							</div>
 							<div class="single-skill">
 								<p>
 									Sketch 85%
@@ -80,6 +81,8 @@
 							
 						</div>
 					</div>
+
+					{% endfor %}
 				</div>	
 			</section>
 			<!-- End home-about Area -->	
@@ -159,6 +162,7 @@
 		            </div>
 		            <div class="row">
 		                <div class="active-testimonial">
+							{% for about in feedbacks%}
 		                    <div class="single-testimonial item d-flex flex-row">
 		                        <div class="thumb">
 		                            <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
@@ -171,16 +175,17 @@
 		                            <p>CEO at Google</p>
 		                        </div>
 		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
+							{% endfor %}
+
 		                        <div class="thumb">
 		                            <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
 		                        </div>
 		                        <div class="desc">
 		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
+										{{about.comment}}
 		                            </p>
-		                            <h4>Carolyn Craig</h4>
-		                            <p>CEO at Facebook</p>
+		                            <h4>{{about.name}}</h4>
+		                            <p>{{about.post}}</p>
 		                        </div>
 		                    </div>
 		                </div>
